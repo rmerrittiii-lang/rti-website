@@ -1,26 +1,449 @@
-@import "tailwindcss";
+/* app/globals.css */
 
+/* ------------------------------
+   Base / Reset
+-------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    --fg: #ffffff;
+    --muted: rgba(255,255,255,0.72);
+
+    --card: rgba(255,255,255,0.06);
+    --cardBorder: rgba(255,255,255,0.12);
+
+    --btnBg: rgba(255,255,255,0.92);
+    --btnFg: #111;
+    --btnBorder: rgba(255,255,255,0.35);
+
+    /* overlay strength (make darker by increasing these) */
+    --heroOverlayA: rgba(0,0,0,0.78);
+    --heroOverlayB: rgba(0,0,0,0.50);
+
+    --radius: 18px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+    min-height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    color: var(--fg);
+    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
+    line-height: 1.5;
+
+    /* global background image */
+    background: #0b0e12 url("/bg.jpg") center center / cover no-repeat fixed;
+}
+
+/* Dark overlay so text is readable */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, var(--heroOverlayA), var(--heroOverlayB));
+    z-index: -1;
+}
+
+/* ------------------------------
+   Layout Shell
+-------------------------------- */
+.shell {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+    padding: 24px 0 72px;
+}
+
+/* ------------------------------
+   Topbar / Brand
+-------------------------------- */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+
+    padding: 14px 16px;
+    border-radius: var(--radius);
+    background: rgba(0,0,0,0.32);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(10px);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+}
+
+/* ✅ Replace the old square with your logo */
+.brandLogo {
+    display: block;
+    width: 96px;       /* 2× bigger feel */
+    height: 96px;      /* keep square */
+    object-fit: contain;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.14);
+    padding: 10px;
+}
+
+.name {
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ------------------------------
+   Nav
+-------------------------------- */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    color: #fff;
+}
+
+/* Contact button in nav */
+.nav .btn {
+    padding: 10px 14px;
+}
+
+/* ------------------------------
+   Buttons
+-------------------------------- */
+.btn,
+.btnGhost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ✅ Get a Quote + What We Do should match */
+.btn {
+    background: var(--btnBg);
+    color: var(--btnFg);
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+
+.btn:hover {
+    filter: brightness(0.98);
+}
+
+.btnGhost {
+    background: var(--btnBg);              /* match Get a Quote */
+    color: var(--btnFg);
+    border: 1px solid rgba(0,0,0,0.12);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+.btnGhost:hover {
+    filter: brightness(0.98);
+}
+
+/* ------------------------------
+   Hero
+-------------------------------- */
+.hero {
+    margin-top: 18px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 22px;
+
+    padding: 22px;
+    border-radius: var(--radius);
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(10px);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 54px;
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+}
+
+.lead {
+    color: rgba(255,255,255,0.82);
+    font-size: 16px;
+    max-width: 56ch;
+}
+
+.ctaRow {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+
+.metaRow {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+}
+
+.pill {
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.80);
+    font-weight: 700;
+    font-size: 13px;
+}
+
+/* ------------------------------
+   Right Panel
+-------------------------------- */
+.panel {
+    border-radius: var(--radius);
+    background: rgba(0,0,0,0.26);
+    border: 1px solid rgba(255,255,255,0.10);
+    padding: 14px;
+}
+
+.panelBadge {
+    display: inline-flex;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(0,0,0,0.25);
+    font-weight: 800;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.panelImage {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    display: block;
+    border: 1px solid rgba(255,255,255,0.10);
+    margin-bottom: 10px;
+}
+
+.panelText {
+    color: rgba(255,255,255,0.78);
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 6px;
+}
+
+/* ------------------------------
+   Sections
+-------------------------------- */
+.grid {
+    margin-top: 22px;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: rgba(0,0,0,0.26);
+    border: 1px solid rgba(255,255,255,0.10);
+    backdrop-filter: blur(10px);
+}
+
+.grid h2 {
+    font-size: 34px;
+    margin-bottom: 14px;
+    letter-spacing: -0.02em;
+}
+
+.aboutWrap {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 28px;
+}
+
+.aboutText {
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 12px;
+    max-width: 72ch;
+}
+
+.aboutTag {
+    display: inline-flex;
+    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    background: rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.14);
+    color: rgba(255,255,255,0.82);
+    font-weight: 800;
+    font-size: 13px;
+}
+
+/* ✅ About logo (smaller) */
+.aboutLogoWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+
+.aboutLogo {
+    width: 100%;
+    max-width: 180px; /* your 1/3 sizing */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 8px 18px rgba(0,0,0,0.35));
+    opacity: 0.95;
+}
+
+/* ------------------------------
+   Cards
+-------------------------------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 14px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--cardBorder);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: rgba(255,255,255,0.78);
+    font-size: 14px;
+}
+
+/* ------------------------------
+   Contact
+-------------------------------- */
+.quoteBox {
+    margin-top: 12px;
+    padding: 18px;
+    border-radius: 16px;
+    background: rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.quoteText {
+    color: rgba(255,255,255,0.82);
+    margin-bottom: 12px;
+}
+
+/* ------------------------------
+   Footer
+-------------------------------- */
+.footer {
+    margin-top: 22px;
+    padding: 16px 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+}
+
+/* ------------------------------
+   Responsive
+-------------------------------- */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutWrap {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .aboutLogoWrap {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .brandLogo {
+        width: 76px;
+        height: 76px;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .footer {
+        flex-direction: column;
+    }
+}
+/* Header Contact button — black text */
+.topbar .nav .btn {
+    color: #111 !important;      /* black text */
+    background: #f5f5f5;         /* light pill */
+    border: 1px solid rgba(0,0,0,0.15);
+}
+
+.topbar .nav .btn:hover {
+    background: #ffffff;
+    color: #000 !important;
 }
