@@ -10,7 +10,10 @@ body {
 /* HERO */
 .hero {
     position: relative;
-    min-height: 100vh;
+
+    /* CHANGE: Don’t force a full screen hero */
+    min-height: 82vh;
+
     color: rgba(255, 255, 255, 0.94);
     overflow: hidden;
 }
@@ -43,7 +46,7 @@ body {
     z-index: 2;
     max-width: 1050px;
     margin: 0 auto;
-    padding: 28px 22px 56px;
+    padding: 28px 22px 44px; /* CHANGE: slightly less bottom padding */
 }
 
 /* BRAND */
@@ -85,7 +88,7 @@ body {
 
 /* HERO COPY */
 .heroCopy {
-    margin-top: 70px;
+    margin-top: 46px; /* CHANGE: was 70px */
     max-width: 780px;
 }
 
@@ -106,7 +109,7 @@ body {
 .heroSubtitle {
     font-size: 18px;
     line-height: 1.55;
-    margin-bottom: 22px;
+    margin-bottom: 18px; /* CHANGE: slightly tighter */
     opacity: 0.92;
 }
 
@@ -114,7 +117,7 @@ body {
 .heroCtas {
     display: flex;
     gap: 12px;
-    margin-bottom: 18px;
+    margin-bottom: 16px; /* CHANGE: tighter */
     flex-wrap: wrap;
 }
 
@@ -157,7 +160,10 @@ body {
 .about {
     background: #0c0c0c;
     color: #f5f5f5;
-    padding: 80px 24px;
+
+    /* CHANGE: tighter padding + pull section up closer to hero */
+    padding: 52px 24px;
+    margin-top: -22px;
 }
 
 .aboutInner {
@@ -173,6 +179,7 @@ body {
 
 .aboutCopy h2 {
     font-size: 34px;
+    margin-top: 0; /* CHANGE: prevent extra top space */
 }
 
 .aboutGallery {
@@ -197,7 +204,7 @@ body {
 }
 
 .aboutGrid {
-    margin-top: 22px;
+    margin-top: 18px; /* CHANGE: was 22px */
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -214,7 +221,10 @@ body {
 .services {
     background: #0f0f0f;
     color: #f5f5f5;
-    padding: 80px 24px;
+
+    /* CHANGE: tighter padding + pull closer to About */
+    padding: 52px 24px;
+    margin-top: -14px;
 }
 
 .servicesInner {
@@ -225,6 +235,7 @@ body {
 .servicesHeader {
     display: flex;
     gap: 14px;
+    align-items: center;
 }
 
 .servicesLogo {
@@ -234,6 +245,7 @@ body {
     background: rgba(255, 255, 255, 0.06);
     display: grid;
     place-items: center;
+    flex: 0 0 auto;
 }
 
 .servicesLogoImg {
@@ -243,7 +255,63 @@ body {
 }
 
 .servicesGrid {
+    margin-top: 16px; /* CHANGE: ensure spacing is consistent */
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* =========================
+   MOBILE TUNING
+========================= */
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto; /* CHANGE: let content define height on mobile */
+    }
+
+    .heroInner {
+        padding: 22px 18px 28px;
+    }
+
+    .heroCopy {
+        margin-top: 26px;
+        max-width: 100%;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+        line-height: 1.08;
+    }
+
+    .heroSubtitle {
+        font-size: 16px;
+    }
+
+    .about {
+        padding: 44px 18px;
+        margin-top: -14px;
+    }
+
+    .aboutTop {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .aboutGallery {
+        grid-template-columns: 1fr;
+    }
+
+    .aboutPhoto.tall {
+        height: 210px;
+    }
+
+    .services {
+        padding: 44px 18px;
+        margin-top: -10px;
+    }
+
+    .servicesHeader {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }
