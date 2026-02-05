@@ -1,3 +1,57 @@
+/* TOP NAV (global) */
+.topNav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 14px 20px;
+    background: rgba(8, 10, 14, 0.55);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.topNavInner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.logoLink {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.nav {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.navPill {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.15s ease;
+}
+
+.navPill:hover {
+    background: rgba(255,255,255,0.16);
+}
+
+/* Active page style will be applied in step 3 */
+.navPillActive {
+    background: #fff;
+    color: #000;
+    border-color: rgba(255,255,255,0.9);
+}
 html,
 body {
     margin: 0;
@@ -10,10 +64,7 @@ body {
 /* HERO */
 .hero {
     position: relative;
-
-    /* CHANGE: Don’t force a full screen hero */
-    min-height: 82vh;
-
+    min-height: 100vh;
     color: rgba(255, 255, 255, 0.94);
     overflow: hidden;
 }
@@ -46,7 +97,7 @@ body {
     z-index: 2;
     max-width: 1050px;
     margin: 0 auto;
-    padding: 28px 22px 44px; /* CHANGE: slightly less bottom padding */
+    padding: 28px 22px 24px;
 }
 
 /* BRAND */
@@ -58,8 +109,8 @@ body {
 }
 
 .brandLogo {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
     border-radius: 18px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.14);
@@ -88,7 +139,7 @@ body {
 
 /* HERO COPY */
 .heroCopy {
-    margin-top: 46px; /* CHANGE: was 70px */
+    margin-top: 70px;
     max-width: 780px;
 }
 
@@ -109,7 +160,7 @@ body {
 .heroSubtitle {
     font-size: 18px;
     line-height: 1.55;
-    margin-bottom: 18px; /* CHANGE: slightly tighter */
+    margin-bottom: 22px;
     opacity: 0.92;
 }
 
@@ -117,7 +168,7 @@ body {
 .heroCtas {
     display: flex;
     gap: 12px;
-    margin-bottom: 16px; /* CHANGE: tighter */
+    margin-bottom: 18px;
     flex-wrap: wrap;
 }
 
@@ -157,57 +208,40 @@ body {
 }
 
 /* ABOUT */
-.about {
-    background: #0c0c0c;
-    color: #f5f5f5;
-
-    /* CHANGE: tighter padding + pull section up closer to hero */
-    padding: 52px 24px;
-    margin-top: -22px;
-}
-
-.aboutInner {
-    max-width: 980px;
-    margin: 0 auto;
-}
-
-.aboutTop {
-    display: grid;
-    grid-template-columns: 1.15fr 0.85fr;
-    gap: 18px;
-}
-
-.aboutCopy h2 {
-    font-size: 34px;
-    margin-top: 0; /* CHANGE: prevent extra top space */
-}
-
+/* ABOUT photos — prevent “smushed” images */
 .aboutGallery {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    gap: 16px;
 }
 
 .aboutPhoto {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255,255,255,0.14);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+
+    /* gives the container a real size without stretching the image */
+    aspect-ratio: 4 / 3;
+    min-height: 180px;
 }
 
+/* if you have .aboutPhoto.tall, keep it “tall” without distortion */
 .aboutPhoto.tall {
-    height: 240px;
+    aspect-ratio: 3 / 4;
 }
 
+/* Next/Image uses an <img> inside — force cover */
 .aboutFill {
-    object-fit: cover;
+    object-fit: cover !important;
+    object-position: center;
 }
 
-.aboutGrid {
-    margin-top: 18px; /* CHANGE: was 22px */
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+/* extra safety: target the actual img too */
+.aboutPhoto img {
+    object-fit: cover !important;
+    object-position: center;
 }
 
 .aboutCard {
@@ -221,10 +255,7 @@ body {
 .services {
     background: #0f0f0f;
     color: #f5f5f5;
-
-    /* CHANGE: tighter padding + pull closer to About */
-    padding: 52px 24px;
-    margin-top: -14px;
+    padding: 80px 24px;
 }
 
 .servicesInner {
@@ -235,7 +266,6 @@ body {
 .servicesHeader {
     display: flex;
     gap: 14px;
-    align-items: center;
 }
 
 .servicesLogo {
@@ -245,7 +275,6 @@ body {
     background: rgba(255, 255, 255, 0.06);
     display: grid;
     place-items: center;
-    flex: 0 0 auto;
 }
 
 .servicesLogoImg {
@@ -255,63 +284,739 @@ body {
 }
 
 .servicesGrid {
-    margin-top: 16px; /* CHANGE: ensure spacing is consistent */
     display: grid;
     gap: 16px;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
+/* =========================
+   PAGE PHOTO SYSTEM (What We Do / Quote / Contact)
+   Keeps all photos same size and NOT huge
+========================= */
+
+.pageMedia {
+    display: grid;
+    gap: 16px;
+}
+
+.photoCard,
+.pageCard {
+    position: relative;
+    width: 100%;
+    height: 240px;          /* change this to 220/260 if you want */
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.45);
+    background: rgba(10, 12, 16, 0.35);
+}
+
+.pageImg,
+.mediaImg,
+.aboutFill {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* WHAT WE DO – hero image height control */
+.whatWeDoHero {
+    position: relative;
+    width: 100%;
+    height: 260px; /* ← adjust: try 220–300 if needed */
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.whatWeDoHero img {
+    object-fit: cover;
+}
+/* Generic page container (used by what-we-do page) */
+.pageShell {
+    min-height: 100vh;
+    padding: 60px 20px;
+}
+
+.pageInner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* What We Do hero banner image */
+.whatWeDoHero {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+/* =========================
+   WHAT WE DO PAGE
+========================= */
+
+.whatWeDoPage {
+    min-height: 100vh;
+    padding: 80px 20px;
+    background: radial-gradient(
+            900px 500px at 20% 20%,
+            rgba(255,255,255,0.04),
+            rgba(0,0,0,0.85)
+    ),
+    linear-gradient(to bottom, #0a0c10, #06070a);
+    color: #f1f5f9;
+}
+
+.whatWeDoInner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.whatWeDoCopy h1 {
+    font-size: clamp(32px, 4vw, 44px);
+    margin-bottom: 14px;
+}
+
+.whatWeDoCopy p {
+    color: rgba(241,245,249,0.75);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.whatWeDoList {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 24px;
+}
+
+.whatWeDoList li {
+    margin-bottom: 10px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.whatWeDoList li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fff;
+}
+
+/* image card */
+.whatWeDoMedia {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.whatWeDoImg {
+    object-fit: cover;
+}
+
+/* mobile */
+@media (max-width: 900px) {
+    .whatWeDoInner {
+        grid-template-columns: 1fr;
+    }
+}
+/* Shared page layout (What We Do + Contact + Get a Quote) */
+
+.page {
+    min-height: 100vh;
+    padding: 80px 20px;
+    background:
+            radial-gradient(900px 500px at 20% 20%, rgba(255,255,255,0.04), rgba(0,0,0,0.85)),
+            linear-gradient(to bottom, #0a0c10, #06070a);
+    color: #f1f5f9;
+}
+
+.pageInner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.pageCopy h1 {
+    font-size: clamp(30px, 3.5vw, 44px);
+    margin-bottom: 10px;
+}
+
+.pageLead {
+    color: rgba(241,245,249,0.75);
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* Right-side photo */
+.photoCard {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.04);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+}
+
+.photoImg {
+    object-fit: cover;
+}
+
+/* Form */
+.field {
+    display: grid;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.field label {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(241,245,249,0.7);
+}
+
+.field input,
+.field textarea {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+    color: #f1f5f9;
+}
+
+.pageLinks {
+    margin-top: 16px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+/* =========================
+   PAGE SIDE IMAGE SIZE TUNING
+   ========================= */
+
+.pageMedia,
+.whatWeDoHero,
+.quoteImageWrap {
+    width: 55%;          /* ← makes image ~45% smaller */
+    max-width: 420px;    /* safety cap */
+}
+
+/* Ensure image stays clean */
+.pageCard,
+.whatWeDoHero,
+.quoteImageWrap {
+    height: 260px;       /* adjust if you want taller/shorter */
+}
+
+/* Image fill stays correct */
+.pageImg,
+.aboutFill,
+.quoteImage {
+    object-fit: cover;
+}
+/* WHAT WE DO – image card fix */
+
+.whatWeDoMedia {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Card container */
+.photoCard {
+    position: relative;
+    width: 55%;              /* ⬅️ makes image ~45% smaller */
+    aspect-ratio: 1 / 1;     /* keeps it square */
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Image inside card */
+.photoImg {
+    object-fit: cover;
+}
+
+/* Mobile tweak */
+@media (max-width: 900px) {
+    .photoCard {
+        width: 100%;
+        max-width: 360px;
+    }
+}
+/* === WHAT WE DO – final media cleanup === */
+
+/* Kill any outer panel/border */
+.whatWeDoMedia {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The ONLY card that should exist */
+.photoCard {
+    position: relative;
+    width: 55%;                 /* ~45% smaller */
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+
+    /* Clean, tight border */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+
+    /* Subtle depth (optional but recommended) */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+/* Image fill */
+.photoImg {
+    object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    .photoCard {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+/* =========================
+   GLOBAL HEADER (LOGO BAR)
+========================= */
+
+.siteHeader {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 10, 14, 0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+
+.siteHeaderInner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logoBanner {
+    display: flex;
+    align-items: center;
+}
 
 /* =========================
-   MOBILE TUNING
+   GLOBAL FOOTER
 ========================= */
-@media (max-width: 768px) {
-    .hero {
-        min-height: auto; /* CHANGE: let content define height on mobile */
-    }
 
-    .heroInner {
-        padding: 22px 18px 28px;
-    }
+.siteFooter {
+    margin-top: 80px;
+    background: rgba(8, 10, 14, 0.9);
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
 
-    .heroCopy {
-        margin-top: 26px;
-        max-width: 100%;
-    }
+.siteFooterInner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255,255,255,0.7);
+    font-size: 14px;
+}
 
-    .heroTitle {
-        font-size: 40px;
-        line-height: 1.08;
-    }
+.footerContact {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 
-    .heroSubtitle {
-        font-size: 16px;
-    }
+.footerContact a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+}
 
-    .about {
-        padding: 44px 18px;
-        margin-top: -14px;
-    }
+.footerContact a:hover {
+    text-decoration: underline;
+}
 
-    .aboutTop {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+.footerDivider {
+    opacity: 0.5;
+}
 
+/* Mobile */
+@media (max-width: 700px) {
+    .siteHeaderInner,
+    .siteFooterInner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* =========================
+   CLEAN FINAL OVERRIDES (PASTE LAST)
+   ========================= */
+
+/* ----- GLOBAL BACKGROUND RESET (stops hero bleed) ----- */
+.about,
+.services,
+.whatWeDoPage,
+.page,
+.siteFooter {
+    position: relative;
+    background: #0a0c10;
+}
+
+.about::before,
+.services::before,
+.whatWeDoPage::before,
+.page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            to bottom,
+            rgba(10, 12, 16, 0.98),
+            rgba(6, 7, 10, 1)
+    );
+    z-index: -1;
+}
+
+/* ----- ABOUT: fix smushed images + spacing ----- */
+.about {
+    padding-top: 28px;
+    padding-bottom: 60px;
+}
+
+.aboutGallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.aboutPhoto {
+    position: relative;
+    width: 100%;
+    height: 260px;              /* real height fixes smush */
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    background: rgba(15, 17, 22, 1);
+}
+
+.aboutPhoto.tall {
+    height: 260px;              /* keep both equal (no weird tall) */
+}
+
+.aboutFill,
+.aboutPhoto img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* ----- WHAT WE DO: remove outer border, keep only the card ----- */
+.whatWeDoMedia {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Only one photo card, clean border */
+.whatWeDoMedia .photoCard {
+    position: relative;
+    width: 55%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.whatWeDoMedia .photoImg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    opacity: 1 !important;
+}
+
+/* ----- MOBILE ----- */
+@media (max-width: 900px) {
     .aboutGallery {
         grid-template-columns: 1fr;
     }
 
+    .aboutPhoto,
     .aboutPhoto.tall {
-        height: 210px;
+        height: 240px;
     }
 
+    .whatWeDoMedia .photoCard {
+        width: 100%;
+        max-width: 320px;
+    }
+}
+/* ===== FIX: About section text contrast ===== */
+.about,
+.aboutInner,
+.aboutTop,
+.aboutCopy,
+.aboutGrid {
+    color: #f1f5f9 !important;
+}
+
+.aboutCopy h2 {
+    color: #ffffff !important;
+}
+
+.aboutCopy p {
+    color: rgba(241, 245, 249, 0.78) !important;
+}
+
+/* About cards */
+.aboutCard {
+    background: rgba(255,255,255,0.06) !important;
+    color: #f1f5f9 !important;
+}
+
+.aboutCard strong {
+    color: #ffffff !important;
+}
+
+.aboutCard span {
+    color: rgba(241,245,249,0.75) !important;
+}
+.about::before {
+    opacity: 1 !important;
+}
+/* ===== LIFT ABOUT SECTION UP ===== */
+.about {
+    padding-top: 32px !important;   /* was much larger */
+    margin-top: -60px !important;   /* pulls it closer to hero */
+}
+
+/* Reduce top margin on About heading */
+.about h2,
+.about h1 {
+    margin-top: 0 !important;
+}
+
+/* Tighten spacing inside About */
+.aboutInner {
+    padding-top: 0 !important;
+}
+/* =========================
+   SERVICES OFFERED – FIX
+========================= */
+
+.services {
+    position: relative;
+    padding-top: 40px !important;     /* pull it up */
+    padding-bottom: 60px;
+    margin-top: -40px;                /* closes gap above */
+    background: #0b0d12 !important;   /* solid dark background */
+}
+
+/* Inner container */
+.servicesInner {
+    background: rgba(15, 17, 22, 0.95);
+    border-radius: 18px;
+    padding: 36px 32px;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+}
+
+/* Section title */
+.services h2,
+.services h3 {
+    margin-top: 0 !important;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+/* Body text */
+.services p {
+    color: rgba(241,245,249,0.88);
+    line-height: 1.6;
+}
+
+/* Service cards (if you’re using a grid) */
+.servicesGrid > * {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px;
+}
+
+/* Mobile tightening */
+@media (max-width: 900px) {
     .services {
-        padding: 44px 18px;
-        margin-top: -10px;
+        margin-top: -20px;
     }
 
-    .servicesHeader {
-        flex-direction: column;
-        align-items: flex-start;
+    .servicesInner {
+        padding: 28px 20px;
     }
+}
+/* =========================
+   ABOUT – MATCH SERVICES LOOK
+========================= */
+
+.about {
+    position: relative;
+    padding-top: 40px !important;
+    padding-bottom: 60px;
+    margin-top: -40px;               /* pulls About up closer to Hero */
+    background: #0b0d12 !important;  /* same dark canvas as Services */
+}
+
+/* Panel wrapper (same idea as .servicesInner) */
+.aboutInner {
+    max-width: 1050px;
+    margin: 0 auto;
+
+    background: rgba(15, 17, 22, 0.95);
+    border-radius: 18px;
+    padding: 36px 32px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+}
+
+/* About headings + text readability */
+.about h2 {
+    margin-top: 0 !important;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.about p {
+    color: rgba(241,245,249,0.88);
+    line-height: 1.6;
+}
+
+/* Keep the photo cards consistent with the darker panel */
+.aboutPhoto {
+    border: 1px solid rgba(255,255,255,0.10) !important;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.55) !important;
+}
+
+/* About cards (same vibe as services cards) */
+.aboutCard {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    color: rgba(241,245,249,0.92);
+}
+
+/* Mobile tightening */
+@media (max-width: 900px) {
+    .about {
+        margin-top: -20px;
+    }
+    .aboutInner {
+        padding: 28px 20px;
+    }
+}
+/* =========================
+   FIX: Section overlap / bleed-through
+   Put this at the VERY bottom of globals.css
+========================= */
+
+/* Give each section its own stacking context so they can't overlap */
+.about,
+.services {
+    position: relative;
+    isolation: isolate;   /* key */
+    z-index: 0;
+}
+
+/* Make sure Services sits above anything above it */
+.services {
+    z-index: 2;
+    margin-top: 0 !important;
+    padding-top: 72px;    /* adjust up/down to taste */
+}
+
+/* Ensure the content is always above any overlays */
+.aboutInner,
+.servicesInner {
+    position: relative;
+    z-index: 2;
+}
+/* Optional: ensure About doesn’t bleed into the next section */
+.about {
+    padding-bottom: 40px;
+}
+/* =========================
+   FIX: overlap / text hidden
+   Put at VERY bottom of globals.css
+========================= */
+
+.about,
+.services,
+.page,
+.whatWeDoPage {
+    position: relative;
+    isolation: isolate;     /* prevents bleed/overlap */
+    z-index: 0;
+}
+
+/* Make sure section backgrounds are solid and behind content */
+.about::before,
+.services::before,
+.page::before,
+.whatWeDoPage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: #0a0c10;
+}
+
+/* Ensure section content is always above any overlays */
+.aboutInner,
+.servicesInner,
+.pageInner,
+.whatWeDoInner {
+    position: relative;
+    z-index: 1;
+}
+
+/* Tighten the gap between Hero and About (move About up) */
+.about {
+    margin-top: -40px;      /* try -24 to -60 */
+    padding-top: 40px;      /* keeps spacing inside */
 }
