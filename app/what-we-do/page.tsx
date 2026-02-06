@@ -43,7 +43,7 @@ export default function WhatWeDoPage() {
                 <div className="whatWeDoMedia">
                     <div className="photoCard">
                         <Image
-                            src="/apparel2.jpg"
+                            src="/apparell12.jpg"
                             alt="Bulk apparel production"
                             fill
                             priority
