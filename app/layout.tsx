@@ -1,4 +1,3 @@
-// app/layout.tsx
 import "./globals.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,6 +35,19 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* ===== PAGE CONTENT ===== */}
         <main>{children}</main>
 
+        {/* GLOBAL INFO BAND (no contact info) */}
+        <section className="infoBand">
+            <div className="infoBandInner">
+                <span className="infoBrand">Refined Textile Industries</span>
+                <span className="infoSep">•</span>
+                <span>Wholesale Apparel</span>
+                <span className="infoSep">•</span>
+                <span>Uniforms</span>
+                <span className="infoSep">•</span>
+                <span>Custom Branding</span>
+            </div>
+        </section>
+
         {/* ===== GLOBAL FOOTER ===== */}
         <footer className="siteFooter">
             <div className="siteFooterInner">
@@ -44,12 +56,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                     <div className="footerTagline">
                         Wholesale Apparel · Uniforms · Custom Branding
                     </div>
-                </div>
-
-                <div className="footerContact">
-                    <a href="mailto:R.T.Indstrs@gmail.com">📧 R.T.Indstrs@gmail.com</a>
-                    <span className="footerDivider">•</span>
-                    <a href="tel:+15128431331">📞 (512) 843-1331</a>
                 </div>
             </div>
         </footer>

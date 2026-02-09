@@ -2,11 +2,13 @@
    BASE / GLOBAL BACKGROUND
 ========================= */
 
-html, body {
+html,
+body {
     min-height: 100%;
     margin: 0;
     padding: 0;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial,
+    sans-serif;
     background: #000; /* fallback */
 }
 
@@ -33,11 +35,7 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: linear-gradient(
-            to bottom,
-            rgba(8, 10, 14, 0.55),
-            rgba(6, 7, 10, 0.88)
-    );
+    background: linear-gradient(to bottom, rgba(8, 10, 14, 0.55), rgba(6, 7, 10, 0.88));
     z-index: -1;
     pointer-events: none;
 }
@@ -53,9 +51,8 @@ body::after {
     padding: 14px 20px;
     background: rgba(8, 10, 14, 0.55);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .topNavInner {
     max-width: 1100px;
     margin: 0 auto;
@@ -88,8 +85,8 @@ body::after {
 .nav {
     display: flex;
     gap: 10px;
-    flex-wrap: nowrap;              /* keep in one row */
-    overflow-x: auto;               /* mobile scroll */
+    flex-wrap: nowrap;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding-bottom: 4px;
 }
@@ -121,157 +118,8 @@ body::after {
 }
 
 /* =========================
-   HERO (HOME)
+   BUTTONS (GLOBAL)
 ========================= */
-
-.hero {
-    position: relative;
-    min-height: 100vh;
-    background: transparent;
-    overflow: hidden;
-    color: rgba(255, 255, 255, 0.94);
-}
-
-.heroBg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.heroBgImg {
-    object-fit: cover;
-    transform: scale(1.02);
-}
-
-.heroOverlay {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-            radial-gradient(1200px 700px at 25% 40%, rgba(0,0,0,0.12), rgba(0,0,0,0.62)),
-            linear-gradient(to bottom, rgba(0,0,0,0.40), rgba(0,0,0,0.55));
-}
-
-.heroInner {
-    position: relative;
-    z-index: 2;
-    max-width: 1050px;
-    margin: 0 auto;
-    padding: 28px 22px 24px;
-}
-
-/* Brand lockup in hero */
-.brandBar {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-top: 10px;
-    flex-wrap: nowrap;
-}
-
-.brandLogo {
-    width:52px;
-    height:52px;
-    flex:0 0 auto;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    /* REMOVE card look */
-    background: transparent;
-    border: none;
-    backdrop-filter: none;
-    border-radius: 0;
-}
-
-.heroLogoRight{
-    width:52px;
-    height:52px;
-    flex:0 0 auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    /* kill the box */
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-    border-radius: 0 !important;
-    padding: 0 !important;
-}
-
-.brandLogoImg{
-    width:100% !important;
-    height:100% !important;
-    object-fit: contain !important;
-    background: transparent !important;
-}
-
-.brandText {
-    min-width: 0;
-}
-
-.brandName {
-    font-size: 22px;
-    font-weight: 780;
-    line-height: 1.05;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.brandTag {
-    font-size: 12px;
-    opacity: 0.88;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* HERO GRID: text left, logo right */
-.heroGrid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    gap: 40px;
-    margin-top: 70px;
-}
-
-.heroCopy {
-    max-width: 780px; /* keeps chips under text */
-    margin-top: 0;
-}
-
-.heroKicker {
-    font-size: 13px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.88;
-}
-
-.heroTitle {
-    font-size: clamp(36px, 5vw, 64px);
-    line-height: 1.04;
-    margin: 14px 0;
-    font-weight: 820;
-}
-
-.heroSubtitle {
-    font-size: 18px;
-    line-height: 1.55;
-    margin-bottom: 22px;
-    opacity: 0.92;
-}
-
-/* buttons */
-.heroCtas {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-}
 
 .btnPrimary,
 .btnGhost {
@@ -297,7 +145,108 @@ body::after {
     border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-/* chips */
+/* =========================
+   HERO (HOME)
+========================= */
+/* =========================
+   ABOUT INSIDE HERO
+========================= */
+
+.aboutHero {
+    margin-top: 22px;
+    padding: 18px 18px;
+    max-width: 780px;
+    border-radius: 16px;
+    background: rgba(15, 17, 22, 0.72);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(10px);
+}
+
+.aboutHeroTitle {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.aboutHeroText {
+    margin: 0;
+    color: rgba(241, 245, 249, 0.88);
+    line-height: 1.6;
+    font-size: 15.5px;
+}
+
+.aboutHeroBtns {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.hero {
+    position: relative;
+    min-height: calc(100vh - 110px);
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.94);
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+            radial-gradient(1200px 700px at 25% 40%, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.62)),
+            linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.55));
+    pointer-events: none;
+}
+
+.heroInner {
+    position: relative;
+    z-index: 2; /* ensures hero text stays above overlays */
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 18px 22px 6px;
+}
+
+.heroLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 70px;
+}
+
+.heroCopy {
+    max-width: 780px;
+}
+
+.heroKicker {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.88;
+}
+
+.heroTitle {
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.04;
+    margin: 14px 0;
+    font-weight: 820;
+}
+
+.heroSubtitle {
+    font-size: 18px;
+    line-height: 1.55;
+    margin-bottom: 22px;
+    opacity: 0.92;
+}
+
+.heroCtas {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
 .heroChips {
     display: flex;
     gap: 10px;
@@ -312,37 +261,27 @@ body::after {
     border: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-/* RIGHT HERO LOGO (35% bigger, pushed right) */
-.heroLogoRight {
-    width: 300px;
-    height: 300px;
-    margin-left: auto; /* pushes right */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 18px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    backdrop-filter: blur(10px);
+.heroUnder {
+    margin-top: 14px;
+    max-width: 820px;
 }
 
-.heroLogoImg {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: contain !important;
+.heroUnderText {
+    margin: 0;
+    font-size: 15.5px;
+    line-height: 1.55;
+    color: rgba(241, 245, 249, 0.88);
 }
 
 /* =========================
    ABOUT (HOME SECTION)
-   - Photos ABOVE text
 ========================= */
 
 .about {
     position: relative;
     isolation: isolate;
-    padding: 36px 20px 64px;
-    margin-top: -40px;
+    margin-top: 10px;
+    padding: 28px 20px 56px;
 }
 
 .aboutInner {
@@ -353,15 +292,8 @@ body::after {
     padding: 28px 26px;
     border-radius: 18px;
     background: rgba(15, 17, 22, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.10);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
-}
-
-.aboutTop {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-    align-items: start;
 }
 
 .aboutGallery {
@@ -371,159 +303,159 @@ body::after {
 }
 
 .aboutPhoto {
-    position: relative;
     width: 100%;
-    height: 260px;
-    border-radius: 16px;
+    max-height: 280px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+    border-radius: 16px;
     background: rgba(255, 255, 255, 0.04);
 }
 
-.aboutPhoto.tall {
-    height: 260px;
+/* give space between photo + text */
+.aboutCopy {
+    margin-top: 18px;
 }
 
-.aboutFill,
 .aboutPhoto img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.aboutLogoCenter {
+    display: flex;
+    justify-content: center;
+    margin: 22px 0 12px;
 }
 
 .aboutCopy h2 {
-    margin: 0 0 12px;
+    margin: 10px 0 12px; /* pushes title down a bit */
     color: #fff;
 }
 
 .aboutCopy p {
-    margin: 0 0 12px;
+    margin: 14px 0 0;
     color: rgba(241, 245, 249, 0.88);
     line-height: 1.6;
 }
 
 .aboutBtns {
-    margin-top: 18px;
+    margin-top: 14px;
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
 }
 
-.aboutGrid {
-    margin-top: 18px;
-    display: grid;
-    gap: 14px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+/* =========================
+   TEXT STRIP (NO LOGO)
+========================= */
+
+.reactStrip {
+    position: relative;
+    padding: 32px 20px;
+    margin-top: 28px;
 }
 
-.aboutCard {
-    border-radius: 14px;
-    padding: 18px;
+.reactInner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.reactStrip .reactText {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: rgba(241, 245, 249, 0.88);
+    margin: 0;
+}
+.reactMedia {
+    position: relative;   /* REQUIRED for next/image fill */
+    width: 100%;
+    max-width: 760px;
+    height: 220px;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(6px);
-    color: rgba(241, 245, 249, 0.92);
 }
 
-.aboutCard strong {
-    color: #fff;
-}
-
-.aboutCard span {
-    display: block;
-    margin-top: 6px;
-    color: rgba(241, 245, 249, 0.78);
+.reactImg {
+    object-fit: cover;
+    object-position: center;
 }
 
 /* =========================
-   SHARED PAGE LAYOUT
+   WHAT WE DO PAGE
+========================= */
+/* =========================
+  SHARED: TWO-COLUMN PAGES
+  (What We Do / Contact / Get a Quote)
 ========================= */
 
-.page,
-.whatWeDoPage {
-    min-height: 100vh;
+.twoColPage {
     padding: 80px 20px;
-    position: relative;
-    isolation: isolate;
+    min-height: 100vh;
 }
 
-.pageInner,
-.whatWeDoInner {
+.twoColInner {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 40px;
-    align-items: start;
+    gap: 48px;
+    align-items: center; /* vertical center */
 }
 
-/* left copy */
-.pageCopy h1,
-.whatWeDoCopy h1 {
+.twoColCopy h1 {
     font-size: clamp(30px, 3.5vw, 44px);
-    margin: 0 0 10px;
+    margin: 0 0 14px;
     color: #fff;
 }
 
-.pageLead,
-.whatWeDoCopy p {
-    color: rgba(241, 245, 249, 0.80);
+.twoColCopy p {
+    color: rgba(241, 245, 249, 0.85);
     line-height: 1.6;
     margin: 0 0 18px;
 }
 
-.whatWeDoList {
-    list-style: none;
-    padding: 0;
-    margin: 18px 0 24px;
-}
-
-.whatWeDoList li {
-    margin-bottom: 10px;
-    padding-left: 18px;
-    position: relative;
-    color: rgba(241, 245, 249, 0.90);
-}
-
-.whatWeDoList li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #fff;
-}
-
-/* right media + square card */
-.whatWeDoMedia {
-    background: none;
-    border: none;
-    padding: 0;
+.twoColBtns {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.photoCard {
-    position: relative;
-    width: 55%;
-    max-width: 340px;
-    aspect-ratio: 1 / 1;
+.twoColBtns .btnPrimary,
+.twoColBtns .btnGhost {
+    min-width: 170px; /* makes both buttons match */
+    text-align: center;
+}
+
+/* RIGHT IMAGE (boxed, not full page) */
+.twoColMedia {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* reuse your existing .photoCard/.photoImg */
+.twoColMedia .photoCard {
+    width: 320px; /* hard cap size */
+}
+
+/* =========================
+  CONTACT / QUOTE FORM
+========================= */
+
+.formCard {
+    margin-top: 14px;
+    padding: 18px;
     border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
 }
 
-.photoImg {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center !important;
-}
-
-/* form fields (quote/contact) */
 .field {
     display: grid;
     gap: 6px;
@@ -538,178 +470,391 @@ body::after {
 }
 
 .field input,
-.field textarea {
+.field textarea,
+.field select {
     padding: 12px;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 0.22);
     color: #f1f5f9;
+    outline: none;
 }
 
-.pageLinks {
-    margin-top: 16px;
+.field textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.formActions {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.formActions .btnPrimary,
+.formActions .btnGhost {
+    min-width: 170px;
 }
 
 /* =========================
-   FOOTER (GLOBAL)
+  MOBILE
 ========================= */
 
-.siteFooter {
-    margin-top: 0;
-    background: rgba(8, 10, 14, 0.90);
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
+@media (max-width: 768px) {
+    .twoColInner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .twoColMedia {
+        justify-content: center;
+    }
+
+    .twoColMedia .photoCard {
+        width: 280px;
+    }
+
+    .twoColBtns .btnPrimary,
+    .twoColBtns .btnGhost,
+    .formActions .btnPrimary,
+    .formActions .btnGhost {
+        width: 100%;
+        min-width: 0;
+    }
 }
 
-.siteFooterInner {
+.whatWeDoPage {
+    padding: 80px 20px;
+    min-height: 100vh;
+}
+
+.whatWeDoInner {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 28px 20px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: center; /* vertical center */
+}
+
+/* LEFT */
+.whatWeDoCopy h1 {
+    font-size: clamp(30px, 3.5vw, 44px);
+    margin-bottom: 14px;
+}
+
+.whatWeDoCopy p {
+    color: rgba(241, 245, 249, 0.85);
+    line-height: 1.6;
+    margin-bottom: 18px;
+}
+
+.whatWeDoList {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 26px;
+}
+
+.whatWeDoList li {
+    margin-bottom: 10px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.whatWeDoList li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #fff;
+}
+
+.whatWeDoBtns {
     display: flex;
+    gap: 12px;
     flex-wrap: wrap;
-    gap: 14px;
-    justify-content: space-between;
-    align-items: center;
-    color: rgba(255, 255, 255, 0.78);
-    font-size: 14px;
 }
 
-.footerContact {
+.whatWeDoBtns .btnPrimary,
+.whatWeDoBtns .btnGhost {
+    min-width: 170px; /* same width buttons */
+    text-align: center;
+}
+
+/* RIGHT IMAGE */
+.whatWeDoMedia {
     display: flex;
-    gap: 10px;
+    justify-content: flex-end; /* push to right */
+    align-items: center; /* mid page */
+}
+
+.photoCard {
+    position: relative;
+    width: 320px;
+    aspect-ratio: 1 / 1;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+.photoImg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+    .heroInner {
+        padding-top: 22px;
+        padding-bottom: 10px;
+    }
+
+    .heroLayout {
+        padding-top: 34px;
+    }
+
+    .heroTitle {
+        font-size: 40px;
+        line-height: 1.05;
+    }
+
+    .heroSubtitle {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .heroCtas {
+        gap: 10px;
+    }
+
+    .btnPrimary,
+    .btnGhost {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .heroChips {
+        gap: 8px;
+    }
+
+    .chip {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .aboutGallery {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .whatWeDoInner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .whatWeDoMedia {
+        justify-content: center;
+    }
+
+    .photoCard {
+        width: 280px;
+    }
+}
+/* =========================
+   SIMPLE FORM PAGES (NO IMAGE)
+   Get a Quote + Contact
+========================= */
+
+.formPage {
+    padding: 80px 20px;
+    min-height: 100vh;
+}
+
+.formInner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* shared typography */
+.formInner h1 {
+    font-size: clamp(30px, 3.5vw, 44px);
+    margin-bottom: 14px;
+}
+
+.formInner p {
+    color: rgba(241, 245, 249, 0.85);
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* form fields already match your site */
+.formInner form {
+    display: grid;
+    gap: 14px;
+}
+
+/* ensure NO accidental media shows */
+.formInner .photoCard,
+.formInner .whatWeDoMedia {
+    display: none !important;
+}
+/* =========================
+   HERO GRID + MEDIA
+========================= */
+
+.heroGrid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
     align-items: center;
 }
 
-.footerContact a {
-    color: rgba(255, 255, 255, 0.90);
-    text-decoration: none;
+/* RIGHT SIDE PHOTO STACK */
+.heroMedia {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-end;
 }
 
-.footerContact a:hover {
-    text-decoration: underline;
+.heroPhoto {
+    position: relative;
+    width: 320px;
+    height: 200px;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.45);
 }
 
-.footerDivider {
-    opacity: 0.6;
+.heroPhoto.tall {
+    height: 260px;
+}
+
+.heroPhoto img {
+    object-fit: cover !important;
+    object-position: center !important;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media (max-width: 768px) {
-    /* Simplify hero brand on small screens */
-    .brandName,
-    .brandTag {
-        display: none;
-    }
-
-    .heroInner {
-        padding-top: 96px; /* prevents sticky nav overlap */
-    }
-
+@media (max-width: 900px) {
     .heroGrid {
         grid-template-columns: 1fr;
-        gap: 18px;
-        margin-top: 54px;
     }
 
-    .heroLogoRight {
-        width: 180px;
-        height: 180px;
-        margin: 10px auto 0;
-    }
-
-    .aboutPhoto,
-    .aboutPhoto.tall {
-        height: 230px;
-    }
-
-    .aboutGrid {
-        grid-template-columns: 1fr;
-    }
-
-    .pageInner,
-    .whatWeDoInner {
-        grid-template-columns: 1fr;
-    }
-
-    .photoCard {
-        width: 100%;
-        max-width: 320px;
-    }
-
-    .siteFooterInner {
-        flex-direction: column;
-        text-align: center;
+    .heroMedia {
+        display: none; /* hide photos on mobile */
     }
 }
 /* =========================
-   MOBILE HERO POLISH
+   FULL WIDTH WHITE BANNER
 ========================= */
-@media (max-width: 768px){
 
-    /* tighter hero padding */
-    .heroInner{
-        padding: 18px 16px 18px;
-    }
+.fullWidthBanner {
+    width: 100vw;
+    margin-left: calc(50% - 50vw); /* true edge-to-edge */
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
 
-    /* stack text then logo */
-    .heroGrid{
-        grid-template-columns: 1fr;
-        gap: 18px;
-        margin-top: 34px;
-    }
+.fullWidthBannerInner {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 18px 24px;
 
-    /* reduce headline so it fits */
-    .heroTitle{
-        font-size: 40px;
-        line-height: 1.05;
-    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
 
-    .heroSubtitle{
-        font-size: 16px;
-        line-height: 1.55;
-    }
+    color: #ffffff;              /* ✅ all white */
+    font-size: 14px;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
 
-    /* logo smaller + centered */
-    .heroLogoRight{
-        width: 170px;
-        height: 170px;
-        margin: 8px auto 0;
-    }
+.bannerBrand {
+    font-weight: 700;
+}
 
-    /* buttons full-width, easy taps */
-    .heroCtas{
-        gap: 10px;
-    }
+.dot {
+    opacity: 0.6;
+}
 
-    .btnPrimary,
-    .btnGhost{
-        width: 100%;
-        justify-content: center;
-    }
+/* Kill any inherited link styling just in case */
+.fullWidthBanner a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
 
-    /* chips wrap nicely */
-    .heroChips{
+/* Mobile */
+@media (max-width: 768px) {
+    .fullWidthBannerInner {
+        font-size: 13px;
         gap: 8px;
     }
+}
+/* =========================
+   INFO BAND (BOTTOM FIX)
+========================= */
 
-    .chip{
+.infoBand {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 14px 20px;
+}
+
+.infoBandInner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.infoBrand {
+    font-weight: 800;
+    letter-spacing: 0.04em;
+}
+
+.infoSep {
+    opacity: 0.55;
+}
+
+/* 🔑 Kill blue links completely */
+.infoBand a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.infoBand a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile polish */
+@media (max-width: 768px) {
+    .infoBandInner {
         font-size: 13px;
-        padding: 8px 12px;
-    }
-
-    /* About section spacing */
-    .about{
-        padding: 26px 14px 54px;
-        margin-top: -18px;
-    }
-
-    .aboutGallery{
-        grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 6px;
     }
 }

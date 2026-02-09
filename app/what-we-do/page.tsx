@@ -10,8 +10,10 @@ export default function WhatWeDoPage() {
                     <h1>What We Do</h1>
 
                     <p>
-                        Wholesale apparel supply and customization — built for bulk orders,
-                        consistent quality, and clean execution.
+                        We partner with trusted domestic manufacturers to deliver contract-compliant
+                        garments for businesses and government agencies. Our mission is simple:
+                        dependable quality, transparent pricing, and on-time delivery—without the
+                        noise and delays of traditional distributors.
                     </p>
 
                     <ul className="whatWeDoList">
@@ -29,7 +31,7 @@ export default function WhatWeDoPage() {
                         </li>
                     </ul>
 
-                    <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                    <div className="whatWeDoBtns">
                         <Link href="/get-a-quote" className="btnPrimary">
                             Get a Quote
                         </Link>
@@ -39,12 +41,12 @@ export default function WhatWeDoPage() {
                     </div>
                 </div>
 
-                {/* RIGHT: square image */}
+                {/* RIGHT: boxed image */}
                 <div className="whatWeDoMedia">
                     <div className="photoCard">
                         <Image
-                            src="/apparell12.jpg"
-                            alt="Bulk apparel production"
+                            src="/apparel2.jpg"
+                            alt="Apparel production"
                             fill
                             priority
                             className="photoImg"
