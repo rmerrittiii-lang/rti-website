@@ -92,9 +92,9 @@ export default function Home() {
                     <span className="dot">•</span>
                     <span>Custom Branding</span>
                     <span className="dot">•</span>
-                    <span>rti.indstrs@gmail.com</span>
+                    <a className="bannerLink" href="mailto:rti.indstrs@gmail.com">rti.indstrs@gmail.com</a>
                     <span className="dot">•</span>
-                    <span>(512) 843-1331</span>
+                    <a className="bannerLink" href="tel:+15128431331">(512) 843-1331</a>
                 </div>
             </section>
 
@@ -121,7 +121,7 @@ export default function Home() {
         <span className="infoSep">•</span>
         <span>Custom Branding</span>
         <span className="infoSep">•</span>
-        <a href="mailto:rti.indstrs@gmail.com">rti.indstrs@gmail.com</a>
+        <a href="mailto:r.t.indstrs@gmail.com">R.T.Indstrs@gmail.com</a>
         <span className="infoSep">•</span>
         <a href="tel:15128431331">(512) 843-1331</a>
     </div>
