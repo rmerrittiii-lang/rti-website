@@ -389,61 +389,6 @@ body::after {
    WHAT WE DO PAGE
 ========================= */
 /* =========================
-  SHARED: TWO-COLUMN PAGES
-  (What We Do / Contact / Get a Quote)
-========================= */
-
-.twoColPage {
-    padding: 80px 20px;
-    min-height: 100vh;
-}
-
-.twoColInner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 48px;
-    align-items: center; /* vertical center */
-}
-
-.twoColCopy h1 {
-    font-size: clamp(30px, 3.5vw, 44px);
-    margin: 0 0 14px;
-    color: #fff;
-}
-
-.twoColCopy p {
-    color: rgba(241, 245, 249, 0.85);
-    line-height: 1.6;
-    margin: 0 0 18px;
-}
-
-.twoColBtns {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.twoColBtns .btnPrimary,
-.twoColBtns .btnGhost {
-    min-width: 170px; /* makes both buttons match */
-    text-align: center;
-}
-
-/* RIGHT IMAGE (boxed, not full page) */
-.twoColMedia {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-/* reuse your existing .photoCard/.photoImg */
-.twoColMedia .photoCard {
-    width: 320px; /* hard cap size */
-}
-
-/* =========================
   CONTACT / QUOTE FORM
 ========================= */
 
