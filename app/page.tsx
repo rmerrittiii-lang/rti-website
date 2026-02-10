@@ -84,15 +84,10 @@ export default function Home() {
             {/* ✅ FULL-WIDTH WHITE BANNER — GOES HERE */}
             <section className="fullWidthBanner">
                 <div className="fullWidthBannerInner">
-                    <span className="bannerBrand">Refined Textile Industries</span>
+                    <span className="bannerBrand"> </span>
+                    <span>Contact Us:</span>
                     <span className="dot">•</span>
-                    <span>Wholesale Apparel</span>
-                    <span className="dot">•</span>
-                    <span>Uniforms</span>
-                    <span className="dot">•</span>
-                    <span>Custom Branding</span>
-                    <span className="dot">•</span>
-                    <a className="bannerLink" href="mailto:rti.indstrs@gmail.com">rti.indstrs@gmail.com</a>
+                    <a href="mailto:rti.indstrs@gmail.com">rti.indstrs@gmail.com</a>
                     <span className="dot">•</span>
                     <a className="bannerLink" href="tel:+15128431331">(512) 843-1331</a>
                 </div>
@@ -111,18 +106,3 @@ export default function Home() {
         </>
     );
 }
-<section className="infoBand">
-    <div className="infoBandInner">
-        <span className="infoBrand">Refined Textile Industries</span>
-        <span className="infoSep">•</span>
-        <span>Wholesale Apparel</span>
-        <span className="infoSep">•</span>
-        <span>Uniforms</span>
-        <span className="infoSep">•</span>
-        <span>Custom Branding</span>
-        <span className="infoSep">•</span>
-        <a href="mailto:r.t.indstrs@gmail.com">R.T.Indstrs@gmail.com</a>
-        <span className="infoSep">•</span>
-        <a href="tel:15128431331">(512) 843-1331</a>
-    </div>
-</section>
