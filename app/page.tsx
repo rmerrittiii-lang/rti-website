@@ -87,7 +87,9 @@ export default function Home() {
                     <span className="bannerBrand"> </span>
                     <span>Contact Us:</span>
                     <span className="dot">•</span>
-                    <a href="mailto:rti.indstrs@gmail.com">rti.indstrs@gmail.com</a>
+                    <a className="bannerLink" href="mailto:r.t.indstrs@gmail.com">
+                        r.t.indstrs@gmail.com
+                    </a>
                     <span className="dot">•</span>
                     <a className="bannerLink" href="tel:+15128431331">(512) 843-1331</a>
                 </div>
